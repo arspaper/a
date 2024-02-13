@@ -116,10 +116,11 @@ def func2_2(s, p):  # 1 pile, +1, +5, *3, >= 199, petya second win, any case van
 
 print("2_2")
 ans = list()
+ans.sort()
 for s in range(1, 199):
     if func2_2(s, 1):
         ans.append(s)
-print(min(ans), max(ans))
+print(ans[0], ans[1])
 print()
 
 
@@ -229,7 +230,7 @@ def func3_3(s, p):  # 1 pile, +1, *2, >= 21, petya first can win, petya second c
         return False
     if s >= 21:
         return False
-    if p % 2 != 0:  # vanya's turns
+    if p % 2 == 0:  # vanya's turns
         return func3_3(s + 1, p + 1) and func3_3(s * 2, p + 1)
     else:  # petya's turns
         return func3_3(s + 1, p + 1) or func3_3(s * 2, p + 1)
@@ -242,7 +243,7 @@ def func3_3_1(s, p):  # //this func counts guaranteed win
         return False
     if s >= 21:
         return False
-    if p % 2 != 0:  # vanya's turns
+    if p % 2 == 0:  # vanya's turns
         return func3_3_1(s + 1, p + 1) and func3_3_1(s * 2, p + 1)
     else:  # petya's turns
         return func3_3_1(s + 1, p + 1) or func3_3_1(s * 2, p + 1)
