@@ -1,4 +1,4 @@
-def F(x, y):  # Trajectory: exclude 24, include 10
+def F(x, y):  # Trajectory: exclude 14, include 10
     if x == y:
         return 1
     if x > y or x == 14:
